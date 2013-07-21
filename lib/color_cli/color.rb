@@ -21,6 +21,16 @@ class Color
 
 		rgb_color_representation = rgb_color_representation[0..2]
 
+		# Convert from String to int or float list
+		 case rgb_color_representation[0].count '.'
+			 when 0
+			 	rgb_color_representation.map! {|string_number| Integer(string_number)}
+			 when 1
+			 	rgb_color_representation.map! {|string_number| Float(string_number)}
+			 else
+			 	abort "That's not a number..."
+		 end
+
 		if rgb_color_representation[0].is_a? Float
 			rgb_color_representation.map! { |color_value| 
 				if color_value.between?(0.0,1.0)
@@ -51,13 +61,13 @@ class Color
 		return "#%02X%02X%02X" % [@colorCode[0], @colorCode[1], @colorCode[2]]
 	end
 
-	def int_rgb_value
+	def octal_rgb_value
 		return Array.new @colorCode
 	end
 
 	def float_rgb_value
 		float_rgb = @colorCode[0..2].map { |color_value| color_value/255.0 }
-		float_rgb.push @colorCode[3]
+		float_rgb.push @colorCode[3] unless @colorCode[3].nil? 
 		return float_rgb
 	end
 end 
