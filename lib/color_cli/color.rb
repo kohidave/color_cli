@@ -1,8 +1,9 @@
 class Color
 
 	RGB_VALUES_BETWEEN_0_AND_256_ERROR = "RGBa values must be either between 0.0 and 1.0 or 0 and 255."
-	HEX_VALUES_BETWEEN_00_AND_FF_ERROR = "HEX values must be between 00 and FF."
+	
 	def initialize(color_representation)
+		# T
 		if color_representation.is_a? Array
 			# It must be a RGBa value
 			@colorCode = normalize_rgb_value color_representation
@@ -53,7 +54,6 @@ class Color
 		abort("Please enter a valid, 6 character, HEX string (with or without the hash).") unless hex_color_representation.size == 6
 		rgb_color_representation = [hex_color_representation[0..1], hex_color_representation[2..3], hex_color_representation[4..5]]
 		rgb_color_representation.map!{|hex| hex.to_i(16)}
-		rgb_color_representation.each{|color_value| abort(HEX_VALUES_BETWEEN_00_AND_FF_ERROR) unless color_value.between?(0,255)}
 		return rgb_color_representation
 	end
 
