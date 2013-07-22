@@ -7,9 +7,9 @@ Gem::Specification.new do |spec|
   spec.name          = "color_cli"
   spec.version       = ColorCli::VERSION
   spec.authors       = ["kohidave"]
-  spec.email         = ["tallonknight@gmail.com"]
-  spec.description   = "Converts a color value to hex and rgb."
-  spec.summary       = "I do it good."
+  spec.email         = ["david@kohidave.com"]
+  spec.description   = "Color converter for the command line."
+  spec.summary       = "Converts color values (RGBa, HEX) into RGBa and HEX."
   spec.homepage      = ""
   spec.license       = "MIT"
 

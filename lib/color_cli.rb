@@ -9,14 +9,14 @@ module ColorCli
 	
 		def self.create_option_parser
 		op = OptionParser.new do |x|
-		    x.banner = 'color converts rgb to hex and vice versa.'      
+		    x.banner = "Usage examples: 'color FFFFFF', 'color 255, 255, 255', 'color .75, .75, .75, .1', 'color FFFFFF --output RGB'"     
 		    x.separator ''
 
 		    x.on("-o", "--output format", String,  "Output hex, rgb (octal or decimal), or all.") do |output|
 		    	OPTS[:output] = output.upcase
 		    end
 		    
-		    x.on("--help", "Show this message") do
+		    x.on("-h", "--help") do
 		    	puts op;  
 		    	exit 
 		    end
