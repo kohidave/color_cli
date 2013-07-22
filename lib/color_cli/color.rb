@@ -16,15 +16,15 @@ class Color
 			abort("RGB requires a red, green and blue value.")
 		end
 
-		alpha = if rgb_color_representation.size > 3 then rgb_color_representation[3] else 1.0 end
-		abort("Alpha value must be between 0.0 and 1.0") unless alpha.is_a? Float and alpha.between?(0.0,1.0)
+		alpha = if rgb_color_representation.size > 3 then rgb_color_representation[3].to_f else 1.0 end
+		abort("Alpha value must be between 0.0 and 1.0") unless alpha.between?(0.0,1.0)
 
 		rgb_color_representation = rgb_color_representation[0..2]
 
 		# Convert from String to int or float list
 		 case rgb_color_representation[0].count '.'
 			 when 0
-			 	rgb_color_representation.map! {|string_number| Integer(string_number)}
+			 	rgb_color_representation = rgb_color_representation[0..2].map {|string_number| Integer(string_number)}
 			 when 1
 			 	rgb_color_representation.map! {|string_number| Float(string_number)}
 			 else
