@@ -1,4 +1,4 @@
-# ColorCli
+# ColorCLI
 
 A simple command line app for converting color values. 
 
